@@ -1,0 +1,178 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+/*
+ * Visual identity (Document 1, §8)
+ * Electric Blue · Electric Yellow · White · Dark Gray · Black
+ * The documentary is a dark, cinematic stage — the viewport is never a webpage.
+ */
+
+@theme inline {
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-grotesk), ui-monospace, monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  /* Documentary identity tokens */
+  --color-electric-blue: var(--electric-blue);
+  --color-electric-yellow: var(--electric-yellow);
+  --color-electric-pink: var(--electric-pink);
+  --color-charge-positive: var(--electric-yellow);
+  --color-charge-negative: var(--electric-blue);
+  --color-stage: var(--stage);
+  --color-stage-deep: var(--stage-deep);
+}
+
+:root {
+  color-scheme: dark;
+
+  --electric-blue: oklch(0.7 0.17 245);
+  --electric-yellow: oklch(0.86 0.17 95);
+  /* Presenter identity — Isabela. A warm rose, clearly distinct from the
+     scientific charge palette (blue/yellow) so hosts never read as charges. */
+  --electric-pink: oklch(0.75 0.16 355);
+  --stage: oklch(0.17 0.02 250);
+  --stage-deep: oklch(0.08 0.015 255);
+
+  --background: oklch(0.05 0.01 255);
+  --foreground: oklch(0.97 0.008 250);
+
+  --primary: var(--electric-blue);
+  --primary-foreground: oklch(0.05 0.01 255);
+  --accent: var(--electric-yellow);
+  --accent-foreground: oklch(0.08 0.01 255);
+
+  --muted: oklch(0.22 0.02 252);
+  --muted-foreground: oklch(0.72 0.02 250);
+  --border: oklch(1 0 0 / 8%);
+  --ring: var(--electric-blue);
+
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* The film runs full-bleed: no page scrolling, no chrome. */
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+}
+
+/*
+ * Motion primitives used by the Electric Narrative System and effects.
+ * Continuous, organic movement — never perfectly linear (Document 2, Ch. 7).
+ */
+@keyframes energy-oscillate {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(2px, -3px) scale(1.04);
+    opacity: 1;
+  }
+}
+
+@keyframes energy-flicker {
+  0%,
+  100% {
+    opacity: 0.85;
+  }
+  45% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes vignette-breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.electric-glow {
+  filter: drop-shadow(0 0 6px var(--electric-blue))
+    drop-shadow(0 0 18px color-mix(in oklch, var(--electric-blue), transparent 55%));
+}
+
+.yellow-glow {
+  filter: drop-shadow(0 0 6px var(--electric-yellow))
+    drop-shadow(0 0 16px color-mix(in oklch, var(--electric-yellow), transparent 55%));
+}
+
+.pink-glow {
+  filter: drop-shadow(0 0 6px var(--electric-pink))
+    drop-shadow(0 0 18px color-mix(in oklch, var(--electric-pink), transparent 55%));
+}
+
+/* Cinematic vignette applied over every scene to defeat the "webpage" feel. */
+.cinematic-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 55%,
+    color-mix(in oklch, var(--stage-deep), transparent 20%) 100%
+  );
+  animation: vignette-breathe 9s ease-in-out infinite;
+}
+
+/* Subtle animated film grain — part of the Cinematic Frame's texture layer. */
+@keyframes film-grain-shift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-2%, -3%);
+  }
+  30% {
+    transform: translate(3%, 2%);
+  }
+  50% {
+    transform: translate(-1%, 3%);
+  }
+  70% {
+    transform: translate(2%, -2%);
+  }
+  90% {
+    transform: translate(-3%, 1%);
+  }
+}
+
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 140px 140px;
+  animation: film-grain-shift 1.4s steps(4) infinite;
+}
+

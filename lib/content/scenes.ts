@@ -263,37 +263,24 @@ narration: {
 
   // 6 — CREDITS ---------------------------------------------------------------
   {
-    id: "credits",
-    title: "Créditos",
-    objective:
-      "Close the documentary with a calm, on-brand credits sequence.",
-    environment: "void",
-    emotion: "understanding",
-    duration: 18,
-narration: {
-  segments: [
-    {
-      narrator: "emiliano",
-      src: `${narrationFolder("credits")}/01-emiliano.mp3`,
-    },
-    {
-      narrator: "isabela",
-      src: `${narrationFolder("credits")}/02-isabela.mp3`,
-    },
-    {
-      narrator: "emiliano",
-      src: `${narrationFolder("credits")}/03-emiliano.mp3`,
-    },
+  id: "credits",
+  title: "Créditos",
+  objective:
+    "Close the documentary with a calm, on-brand credits sequence.",
+  environment: "void",
+  emotion: "understanding",
+  duration: 18,
+
+  transitionIn: "fade-black",
+
+  cues: [
+    { id: "credits-in", start: 1 },
+    { id: "credits-thanks", start: 10, caption: "Gracias por acompañarnos." },
+  ],
+
+  camera: [
+    { time: 0, x: 0, y: 0, scale: 1 },
+    { time: 18, x: 0, y: -4, scale: 1.05 },
   ],
 },
-    transitionIn: "fade-black",
-    cues: [
-      { id: "credits-in", start: 1 },
-      { id: "credits-thanks", start: 10, caption: "Gracias por acompañarnos." },
-    ],
-    camera: [
-      { time: 0, x: 0, y: 0, scale: 1 },
-      { time: 18, x: 0, y: -4, scale: 1.05 },
-    ],
-  },
 ]

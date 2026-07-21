@@ -77,10 +77,12 @@ export class AudioManager {
     this.playSegment(0)
   }
 
-  stopNarration() {
+stopNarration() {
     if (this.narration) {
+      this.narration.onplaying = null
+      this.narration.onerror = null
+      this.narration.onended = null
       this.narration.pause()
-      this.narration.src = ""
       this.narration = null
     }
 
@@ -143,11 +145,16 @@ export class AudioManager {
 
     const segment = this.currentNarration.segments[index]
 
+    console.log("▶ Reproduciendo segmento:", index, segment.src)
+
     this.activeNarrator = segment.narrator
 
-    if (this.narration) {
-      this.narration.pause()
-      this.narration.src = ""
+if (this.narration) {
+      const old = this.narration
+      old.onplaying = null
+      old.onerror = null
+      old.onended = null
+      old.pause()
       this.narration = null
     }
 
@@ -157,18 +164,20 @@ export class AudioManager {
 
     this.narration = el
 
-    el.addEventListener("playing", () => {
+    el.onplaying = () => {
       this.hasNarration = true
       this.duckMusic()
-    })
+    }
 
-    el.addEventListener("error", () => {
+    el.onerror = (event) => {
+      console.error("❌ Error reproduciendo:", segment.src, event)
       this.playSegment(index + 1)
-    })
+    }
 
-    el.addEventListener("ended", () => {
+    el.onended = () => {
+      console.log("⏹ Terminó segmento:", index)
       this.playSegment(index + 1)
-    })
+    }
 
     void el.play().catch(() => {
       this.playSegment(index + 1)

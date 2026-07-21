@@ -11,9 +11,8 @@ import { ElectricEnergy } from "../electric-narrative/electric-energy"
 
 const CREDITS = [
   { role: "Una producción sobre", name: "La Electrostática" },
-  { role: "Concepto y narrativa", name: "Equipo de Divulgación" },
-  { role: "Animación y dirección", name: "Estudio Documental" },
-  { role: "Música original", name: "Ambiente Eléctrico" },
+  { role: "Narración", name: "Emiliano e Isabela" },
+  { role: "Creación", name: "Emiliano e Isabela Sierra" },
 ]
 
 export function CreditsScene({ cues }: { cues: Set<string> }) {

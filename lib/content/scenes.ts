@@ -23,7 +23,7 @@
 
 import type { SceneConfig } from "../documentary/types"
 
-export const MUSIC_SRC = "/audio/music/ambient.mp3"
+export const MUSIC_SRC = "/audio/music/ambient.ogg"
 
 const narrationFolder = (scene: string) => `/audio/narration/${scene}`
 
@@ -43,15 +43,15 @@ narration: {
   segments: [
     {
       narrator: "emiliano",
-      src: `${narrationFolder("opening")}/01-emiliano.mp3`,
+      src: `${narrationFolder("opening")}/01-emiliano.ogg`,
     },
     {
       narrator: "isabela",
-      src: `${narrationFolder("opening")}/02-isabela.mp3`,
+      src: `${narrationFolder("opening")}/02-isabela.ogg`,
     },
     {
       narrator: "emiliano",
-      src: `${narrationFolder("opening")}/03-emiliano.mp3`,
+      src: `${narrationFolder("opening")}/03-emiliano.ogg`,
     },
   ],
 },
@@ -83,19 +83,19 @@ narration: {
   segments: [
     {
       narrator: "emiliano",
-      src: `${narrationFolder("history")}/01-emiliano.mp3`,
+      src: `${narrationFolder("history")}/01-emiliano.ogg`,
     },
     {
       narrator: "isabela",
-      src: `${narrationFolder("history")}/02-isabela.mp3`,
+      src: `${narrationFolder("history")}/02-isabela.ogg`,
     },
     {
       narrator: "emiliano",
-      src: `${narrationFolder("history")}/03-emiliano.mp3`,
+      src: `${narrationFolder("history")}/03-emiliano.ogg`,
     },
     {
       narrator: "isabela",
-      src: `${narrationFolder("history")}/04-isabela.mp3`,
+      src: `${narrationFolder("history")}/04-isabela.ogg`,
     },
   ],
 },
@@ -131,19 +131,19 @@ narration: {
   segments: [
     {
       narrator: "emiliano",
-      src: `${narrationFolder("charges")}/01-emiliano.mp3`,
+      src: `${narrationFolder("charges")}/01-emiliano.ogg`,
     },
     {
       narrator: "isabela",
-      src: `${narrationFolder("charges")}/02-isabela.mp3`,
+      src: `${narrationFolder("charges")}/02-isabela.ogg`,
     },
     {
       narrator: "emiliano",
-      src: `${narrationFolder("charges")}/03-emiliano.mp3`,
+      src: `${narrationFolder("charges")}/03-emiliano.ogg`,
     },
     {
       narrator: "isabela",
-      src: `${narrationFolder("charges")}/04-isabela.mp3`,
+      src: `${narrationFolder("charges")}/04-isabela.ogg`,
     },
   ],
 },
@@ -180,23 +180,23 @@ narration: {
   segments: [
     {
       narrator: "emiliano",
-      src: `${narrationFolder("methods")}/01-emiliano.mp3`,
+      src: `${narrationFolder("methods")}/01-emiliano.ogg`,
     },
     {
       narrator: "isabela",
-      src: `${narrationFolder("methods")}/02-isabela.mp3`,
+      src: `${narrationFolder("methods")}/02-isabela.ogg`,
     },
     {
       narrator: "emiliano",
-      src: `${narrationFolder("methods")}/03-emiliano.mp3`,
+      src: `${narrationFolder("methods")}/03-emiliano.ogg`,
     },
     {
       narrator: "isabela",
-      src: `${narrationFolder("methods")}/04-isabela.mp3`,
+      src: `${narrationFolder("methods")}/04-isabela.ogg`,
     },
     {
       narrator: "emiliano",
-      src: `${narrationFolder("methods")}/05-emiliano.mp3`,
+      src: `${narrationFolder("methods")}/05-emiliano.ogg`,
     },
   ],
 },
@@ -232,19 +232,19 @@ narration: {
   segments: [
     {
       narrator: "emiliano",
-      src: `${narrationFolder("conclusion")}/01-emiliano.mp3`,
+      src: `${narrationFolder("conclusion")}/01-emiliano.ogg`,
     },
     {
       narrator: "isabela",
-      src: `${narrationFolder("conclusion")}/02-isabela.mp3`,
+      src: `${narrationFolder("conclusion")}/02-isabela.ogg`,
     },
     {
       narrator: "emiliano",
-      src: `${narrationFolder("conclusion")}/03-emiliano.mp3`,
+      src: `${narrationFolder("conclusion")}/03-emiliano.ogg`,
     },
     {
       narrator: "isabela",
-      src: `${narrationFolder("conclusion")}/04-isabela.mp3`,
+      src: `${narrationFolder("conclusion")}/04-isabela.ogg`,
     },
   ],
 },
